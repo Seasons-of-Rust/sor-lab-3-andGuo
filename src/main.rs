@@ -78,7 +78,7 @@ impl Shop {
 
         let mut max_price: &Card = &self.cards[0];
 
-        for card in self.cards[1..].iter() {
+        for card in &self.cards[1..] {
             if card.price > max_price.price {
                 max_price = &card;
             }
@@ -91,7 +91,7 @@ impl Shop {
     fn total_damage(&self) -> u32 {
         let mut dmg_sum = 0;
 
-        for card in self.cards.iter() {
+        for card in &self.cards {
             dmg_sum += card.damage;
         }
 
@@ -102,7 +102,7 @@ impl Shop {
     fn total_health(&self) -> u32 {
         let mut hp_sum = 0;
 
-        for card in self.cards.iter() {
+        for card in &self.cards {
             hp_sum += card.health;
         }
 
